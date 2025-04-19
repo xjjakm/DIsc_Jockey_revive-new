@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "disc_jockey",
+  "version": "${version}",
+  "name": "Disc Jockey",
+  "description": "在游戏中播放音符盒（打碟机）",
+  "authors": [
+    "SemmieDev",
+    "EnderKill98",
+    "BRanulf(仅限该版本，请支持上面两个原作者)"
+  ],
+  "contact": {
+    "repo": "http://git.branulf.top/BRanulf/DJ_BR"
+  },
+  "license": "MIT",
+  "icon": "assets/disc_jockey/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "semmiedev.disc_jockey.Main"
+    ],
+    "modmenu": [
+      "semmiedev.disc_jockey.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "disc_jockey.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": "~1.21.4",
+    "java": ">=21",
+    "cloth-config": "*"
+  }
+}
