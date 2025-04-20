@@ -34,7 +34,7 @@
   "disc_jockey.loop_status": "Loop song: %s",
   "disc_jockey.loop_enabled": "Enabled looping of current song.",
   "disc_jockey.loop_disabled": "Disabled looping of current song.",
-  "disc_jockey.warning": "WARNING!!! This mod is very likely to get false flagged as hacks, please contact a server administrator before using this mod! (You can disable this warning in the mod settings)",
+  "disc_jockey.warning": "WARNING!!! This mod is very likely to get false flagged as hacks, please contact a server administrator before using this mod! (You can disable this warning in the mod settings)\nThe current version is an unofficial version, revised by BRanulf\nFor learning reference only, please support the official, don't contact me XD",
   "key.category.disc_jockey": "Disc Jockey",
   "disc_jockey.key_bind.open_screen": "Open song selection screen",
   "text.autoconfig.disc_jockey.title": "Disc Jockey",
@@ -51,5 +51,15 @@
   "text.autoconfig.disc_jockey.option.expectedServerVersion.@Tooltip[2]": "Selecting the wrong version could cause you not to be able to play some distant note blocks which could break/worsen playback",
   "text.autoconfig.disc_jockey.option.expectedServerVersion.@Tooltip[3]": "If you're unsure, or play on many different server versions and don't mind not reaching every possible note block, select \"All\"",
   "text.autoconfig.disc_jockey.option.delayPlaybackStartBySecs": "Delay playback by (seconds)",
-  "text.autoconfig.disc_jockey.option.delayPlaybackStartBySecs.@Tooltip": "Delays playback for specified seconds, after tuning finished, if any (e.g. 0.5 for half a second delay)."
+  "text.autoconfig.disc_jockey.option.delayPlaybackStartBySecs.@Tooltip": "Delays playback for specified seconds, after tuning finished, if any (e.g. 0.5 for half a second delay).",
+  "disc_jockey.screen.current_folder": "Current Folder",
+  "disc_jockey.screen.play_mode": "Play Mode",
+  "disc_jockey.screen.mode_single": "Single Loop",
+  "disc_jockey.screen.mode_list": "List Loop",
+  "disc_jockey.screen.mode_random": "Random",
+  "disc_jockey.screen.mode_stop": "Stop After",
+  "disc_jockey.screen.open_folder": "Open Folder",
+  "disc_jockey.screen.open_folder_failed": "Failed to open folder",
+  "disc_jockey.screen.reload": "Reload Songs",
+  "disc_jockey.screen.reloading": "Reloading songs..."
 }

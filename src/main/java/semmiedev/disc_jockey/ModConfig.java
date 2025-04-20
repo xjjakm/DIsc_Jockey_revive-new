@@ -7,10 +7,16 @@ import java.util.ArrayList;
 
 @me.shedaniel.autoconfig.annotation.Config(name = Main.MOD_ID)
 @me.shedaniel.autoconfig.annotation.Config.Gui.Background("textures/block/note_block.png")
-public class Config implements ConfigData {
+public class ModConfig implements ConfigData {
     public boolean hideWarning;
     @ConfigEntry.Gui.Tooltip(count = 2) public boolean disableAsyncPlayback;
     @ConfigEntry.Gui.Tooltip(count = 2) public boolean omnidirectionalNoteBlockSounds = true;
+
+    @ConfigEntry.Gui.Excluded
+    public String currentFolderPath = "";
+
+    @ConfigEntry.Gui.Excluded
+    public SongPlayer.PlayMode playMode = SongPlayer.PlayMode.STOP_AFTER;
 
     public enum ExpectedServerVersion {
         All,

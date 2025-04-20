@@ -29,7 +29,7 @@ public record Note(NoteBlockInstrument instrument, byte note) {
             NoteBlockInstrument.DIDGERIDOO,
             NoteBlockInstrument.BIT,
             NoteBlockInstrument.BANJO,
-            NoteBlockInstrument.PLING
+            NoteBlockInstrument.PLING,
 
     };
 

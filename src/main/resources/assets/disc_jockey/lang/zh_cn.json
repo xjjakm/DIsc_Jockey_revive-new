@@ -34,7 +34,7 @@
   "disc_jockey.loop_status": "循环播放：%s",
   "disc_jockey.loop_enabled": "已启用当前歌曲循环播放",
   "disc_jockey.loop_disabled": "已禁用当前歌曲循环播放",
-  "disc_jockey.warning": "警告！此模组极易被误判为作弊工具，使用前请联系服务器管理员！（可在模组设置中关闭此警告）\n当前版本：1.14.514（1.21.4）为非官方版本，由BRanulf改版，翻译也是这家伙提供的。\n仅供学习参考，请支持官方，别找我XD",
+  "disc_jockey.warning": "警告！此模组极易被误判为作弊工具，使用前请联系服务器管理员！（可在模组设置中关闭此警告）\n当前版本为非官方版本，由BRanulf改版，翻译也是这家伙提供的。\n仅供学习参考，请支持官方，别找我XD",
   "key.category.disc_jockey": "Disc Jockey",
   "disc_jockey.key_bind.open_screen": "打开歌曲选择界面",
   "text.autoconfig.disc_jockey.title": "Disc Jockey",
@@ -51,5 +51,14 @@
   "text.autoconfig.disc_jockey.option.expectedServerVersion.@Tooltip[2]": "版本选择错误可能导致无法触发部分音符盒，影响播放效果",
   "text.autoconfig.disc_jockey.option.expectedServerVersion.@Tooltip[3]": "若不确认版本，或需兼容多版本服务器，请选择“全部”",
   "text.autoconfig.disc_jockey.option.delayPlaybackStartBySecs": "播放延迟（秒）",
-  "text.autoconfig.disc_jockey.option.delayPlaybackStartBySecs.@Tooltip": "调音完成后延迟指定秒数再开始播放（如 0.5 表示延迟半秒）。"
+  "text.autoconfig.disc_jockey.option.delayPlaybackStartBySecs.@Tooltip": "调音完成后延迟指定秒数再开始播放（如 0.5 表示延迟半秒）。",
+  "disc_jockey.screen.current_folder": "当前文件夹",
+  "disc_jockey.screen.play_mode": "播放模式",
+  "disc_jockey.screen.mode_single": "单曲循环",
+  "disc_jockey.screen.mode_list": "列表循环",
+  "disc_jockey.screen.mode_random": "随机播放",
+  "disc_jockey.screen.mode_stop": "播完停止","disc_jockey.screen.open_folder": "打开文件夹",
+  "disc_jockey.screen.open_folder_failed": "无法打开文件夹",
+  "disc_jockey.screen.reload": "重新加载",
+  "disc_jockey.screen.reloading": "正在重新加载..."
 }

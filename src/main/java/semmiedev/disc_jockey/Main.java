@@ -35,12 +35,12 @@ public class Main implements ClientModInitializer {
     public static final SongPlayer SONG_PLAYER = new SongPlayer();
 
     public static File songsFolder;
-    public static Config config;
-    public static ConfigHolder<Config> configHolder;
+    public static ModConfig config;
+    public static ConfigHolder<ModConfig> configHolder;
 
     @Override
     public void onInitializeClient() {
-        configHolder = AutoConfig.register(Config.class, JanksonConfigSerializer::new);
+        configHolder = AutoConfig.register(ModConfig.class, JanksonConfigSerializer::new);
         config = configHolder.getConfig();
 
         songsFolder = new File(FabricLoader.getInstance().getConfigDir()+File.separator+MOD_ID+File.separator+"songs");

@@ -91,6 +91,17 @@ public class SongPlayer implements ClientTickEvents.StartWorldTick {
         this.playbackThread.start();
     }
 
+    public enum PlayMode {
+        SINGLE_LOOP, // 单曲循环
+        LIST_LOOP,   // 列表循环
+        RANDOM,      // 随机播放
+        STOP_AFTER   // 播完就停
+    }
+
+    private PlayMode playMode = PlayMode.STOP_AFTER;
+    private boolean isRandomPlaying = false;
+    private int randomIndex = -1;
+
     public synchronized void stopPlaybackThread() {
         this.playbackThread = null; // Should stop on its own then
     }
@@ -103,8 +114,7 @@ public class SongPlayer implements ClientTickEvents.StartWorldTick {
         }
         if (running) stop();
         this.song = song;
-        //Main.LOGGER.info("Song length: " + song.length + " and tempo " + song.tempo);
-        //Main.TICK_LISTENERS.add(this);
+        this.loopSong = playMode == PlayMode.SINGLE_LOOP;
         if(this.playbackThread == null) startPlaybackThread();
         running = true;
         lastPlaybackTickAt = System.currentTimeMillis();
@@ -116,6 +126,18 @@ public class SongPlayer implements ClientTickEvents.StartWorldTick {
         lastSwingSentAt = -1L;
         missingInstrumentBlocks.clear();
         didSongReachEnd = false;
+        isRandomPlaying = playMode == PlayMode.RANDOM;
+        if (isRandomPlaying) {
+            randomIndex = getRandomSongIndex();
+        }
+    }
+
+    private int getRandomSongIndex() {
+        if (SongLoader.currentFolder == null) {
+            return (int) (Math.random() * SongLoader.SONGS.size());
+        } else {
+            return (int) (Math.random() * SongLoader.currentFolder.songs.size());
+        }
     }
 
     public synchronized void stop() {
@@ -215,8 +237,10 @@ public class SongPlayer implements ClientTickEvents.StartWorldTick {
                     if (index >= song.notes.length) {
                         stop();
                         didSongReachEnd = true;
-                        if(loopSong) {
+                        if (playMode == PlayMode.SINGLE_LOOP) {
                             start(song);
+                        } else if (playMode == PlayMode.LIST_LOOP || playMode == PlayMode.RANDOM) {
+                            playNextSong();
                         }
                         break;
                     }
@@ -232,6 +256,30 @@ public class SongPlayer implements ClientTickEvents.StartWorldTick {
         }
     }
 
+    private void playNextSong() {
+        if (SongLoader.currentFolder == null || SongLoader.currentFolder.songs.isEmpty()) return;
+
+        int currentIndex = SongLoader.currentFolder.songs.indexOf(song);
+        if (currentIndex == -1) return;
+
+        if (playMode == PlayMode.RANDOM) {
+            int newIndex;
+            do {
+                newIndex = (int) (Math.random() * SongLoader.currentFolder.songs.size());
+            } while (newIndex == currentIndex && SongLoader.currentFolder.songs.size() > 1);
+            start(SongLoader.currentFolder.songs.get(newIndex));
+        } else if (playMode == PlayMode.LIST_LOOP) {
+            int nextIndex = (currentIndex + 1) % SongLoader.currentFolder.songs.size();
+            start(SongLoader.currentFolder.songs.get(nextIndex));
+        }
+    }
+
+    public synchronized void setPlayMode(PlayMode mode) {
+        this.playMode = mode;
+        this.loopSong = mode == PlayMode.SINGLE_LOOP;
+    }
+
+    // this is the original author‘s comment, i dont wanna delete it
     // TODO: 6/2/2022 Play note blocks every song tick, instead of every tick. That way the song will sound better
     //      11/1/2023 Playback now done in separate thread. Not ideal but better especially when FPS are low.
     @Override
@@ -260,11 +308,11 @@ public class SongPlayer implements ClientTickEvents.StartWorldTick {
             final Vec3d playerEyePos = player.getEyePos();
 
             final int maxOffset; // Rough estimates, of which blocks could be in reach
-            if(Main.config.expectedServerVersion == Config.ExpectedServerVersion.v1_20_4_Or_Earlier) {
+            if(Main.config.expectedServerVersion == ModConfig.ExpectedServerVersion.v1_20_4_Or_Earlier) {
                 maxOffset = 7;
-            }else if(Main.config.expectedServerVersion == Config.ExpectedServerVersion.v1_20_5_Or_Later) {
+            }else if(Main.config.expectedServerVersion == ModConfig.ExpectedServerVersion.v1_20_5_Or_Later) {
                 maxOffset = (int) Math.ceil(player.getBlockInteractionRange() + 1.0 + 1.0);
-            }else if(Main.config.expectedServerVersion == Config.ExpectedServerVersion.All) {
+            }else if(Main.config.expectedServerVersion == ModConfig.ExpectedServerVersion.All) {
                 maxOffset = Math.min(7, (int) Math.ceil(player.getBlockInteractionRange() + 1.0 + 1.0));
             }else {
                 throw new NotImplementedException("ExpectedServerVersion Value not implemented: " + Main.config.expectedServerVersion.name());
@@ -494,12 +542,12 @@ public class SongPlayer implements ClientTickEvents.StartWorldTick {
     // (max distance is BlockInteractRange + 1.0).
     private boolean canInteractWith(ClientPlayerEntity player, BlockPos blockPos) {
         final Vec3d eyePos = player.getEyePos();
-        if(Main.config.expectedServerVersion == Config.ExpectedServerVersion.v1_20_4_Or_Earlier) {
+        if(Main.config.expectedServerVersion == ModConfig.ExpectedServerVersion.v1_20_4_Or_Earlier) {
             return eyePos.squaredDistanceTo(blockPos.toCenterPos()) <= 6.0 * 6.0;
-        }else if(Main.config.expectedServerVersion == Config.ExpectedServerVersion.v1_20_5_Or_Later) {
+        }else if(Main.config.expectedServerVersion == ModConfig.ExpectedServerVersion.v1_20_5_Or_Later) {
             double blockInteractRange = player.getBlockInteractionRange() + 1.0;
             return new Box(blockPos).squaredMagnitude(eyePos) < blockInteractRange * blockInteractRange;
-        }else if(Main.config.expectedServerVersion == Config.ExpectedServerVersion.All) {
+        }else if(Main.config.expectedServerVersion == ModConfig.ExpectedServerVersion.All) {
             // Require both checks to succeed (aka use worst distance)
             double blockInteractRange = player.getBlockInteractionRange() + 1.0;
             return eyePos.squaredDistanceTo(blockPos.toCenterPos()) <= 6.0 * 6.0

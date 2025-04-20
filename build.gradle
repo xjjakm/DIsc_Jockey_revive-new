@@ -25,6 +25,7 @@ dependencies {
     include modApi("me.shedaniel.cloth:cloth-config-fabric:17.0.142") {
         exclude(group: "net.fabricmc.fabric-api")
     }
+    modImplementation "me.shedaniel.cloth:cloth-config-fabric:17.0.142"
 
 //    modCompileOnly("com.terraformersmc:modmenu:13.0.3")、
     modCompileOnly files("libs/modmenu-13.0.3.jar")
