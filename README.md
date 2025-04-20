@@ -1,1 +1,2 @@
 Download the mod at [Modrinth](https://modrinth.com/mod/disc-jockey) or [CurseForge](https://www.curseforge.com/minecraft/mc-mods/disc-jockey)
+# 请前往支持原作者：[SemmieDev](https://github.com/SemmieDev/Disc-Jockey)
