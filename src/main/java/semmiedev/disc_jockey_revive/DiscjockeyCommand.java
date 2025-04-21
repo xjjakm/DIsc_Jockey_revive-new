@@ -1,4 +1,4 @@
-package semmiedev.disc_jockey;
+package semmiedev.disc_jockey_revive;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.FloatArgumentType;
@@ -10,7 +10,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.command.CommandSource;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
-import semmiedev.disc_jockey.gui.screen.DiscJockeyScreen;
+import semmiedev.disc_jockey_revive.gui.screen.DiscJockeyScreen;
 
 import java.util.ArrayList;
 import java.util.Arrays;

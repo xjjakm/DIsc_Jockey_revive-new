@@ -1,19 +1,17 @@
-package semmiedev.disc_jockey.gui;
+package semmiedev.disc_jockey_revive.gui;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.gui.widget.EntryListWidget;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
-import semmiedev.disc_jockey.Main;
-import semmiedev.disc_jockey.Song;
-import semmiedev.disc_jockey.SongLoader;
-import semmiedev.disc_jockey.SongLoader.SongFolder;
-import semmiedev.disc_jockey.gui.screen.DiscJockeyScreen;
+import semmiedev.disc_jockey_revive.Main;
+import semmiedev.disc_jockey_revive.Song;
+import semmiedev.disc_jockey_revive.SongLoader;
+import semmiedev.disc_jockey_revive.SongLoader.SongFolder;
+import semmiedev.disc_jockey_revive.gui.screen.DiscJockeyScreen;
 
 public class SongListWidget extends EntryListWidget<SongListWidget.Entry> {
     private static final String FAVORITE_EMOJI = "收藏★";

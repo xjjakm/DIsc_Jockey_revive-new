@@ -1,4 +1,4 @@
-package semmiedev.disc_jockey.gui.screen;
+package semmiedev.disc_jockey_revive.gui.screen;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ConfirmScreen;
@@ -9,12 +9,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import semmiedev.disc_jockey.Main;
-import semmiedev.disc_jockey.Note;
-import semmiedev.disc_jockey.Song;
-import semmiedev.disc_jockey.SongLoader;
-import semmiedev.disc_jockey.gui.SongListWidget;
-import semmiedev.disc_jockey.gui.hud.BlocksOverlay;
+import semmiedev.disc_jockey_revive.Main;
+import semmiedev.disc_jockey_revive.Note;
+import semmiedev.disc_jockey_revive.Song;
+import semmiedev.disc_jockey_revive.SongLoader;
+import semmiedev.disc_jockey_revive.gui.SongListWidget;
+import semmiedev.disc_jockey_revive.gui.hud.BlocksOverlay;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,8 +24,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import semmiedev.disc_jockey.SongLoader.SongFolder;
-import semmiedev.disc_jockey.SongPlayer.PlayMode;
+import semmiedev.disc_jockey_revive.SongLoader.SongFolder;
+import semmiedev.disc_jockey_revive.SongPlayer.PlayMode;
 
 public class DiscJockeyScreen extends Screen {
     private static final MutableText

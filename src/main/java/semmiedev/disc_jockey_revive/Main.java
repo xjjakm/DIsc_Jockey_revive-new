@@ -1,4 +1,4 @@
-package semmiedev.disc_jockey;
+package semmiedev.disc_jockey_revive;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigHolder;
@@ -20,14 +20,14 @@ import net.minecraft.util.Formatting;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.GLFW;
-import semmiedev.disc_jockey.gui.hud.BlocksOverlay;
-import semmiedev.disc_jockey.gui.screen.DiscJockeyScreen;
+import semmiedev.disc_jockey_revive.gui.hud.BlocksOverlay;
+import semmiedev.disc_jockey_revive.gui.screen.DiscJockeyScreen;
 
 import java.io.File;
 import java.util.ArrayList;
 
 public class Main implements ClientModInitializer {
-    public static final String MOD_ID = "disc_jockey";
+    public static final String MOD_ID = "disc_jockey_revive";
     public static final MutableText NAME = Text.literal("Disc Jockey");
     public static final Logger LOGGER = LogManager.getLogger("Disc Jockey");
     public static final ArrayList<ClientTickEvents.StartWorldTick> TICK_LISTENERS = new ArrayList<>();
@@ -43,7 +43,7 @@ public class Main implements ClientModInitializer {
         configHolder = AutoConfig.register(ModConfig.class, JanksonConfigSerializer::new);
         config = configHolder.getConfig();
 
-        songsFolder = new File(FabricLoader.getInstance().getConfigDir()+File.separator+MOD_ID+File.separator+"songs");
+        songsFolder = new File(FabricLoader.getInstance().getConfigDir()+File.separator+"disc_jockey"+File.separator+"songs");
         if (!songsFolder.isDirectory()) songsFolder.mkdirs();
 
         SongLoader.loadSongs();

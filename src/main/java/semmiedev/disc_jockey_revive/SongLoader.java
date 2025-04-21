@@ -1,9 +1,9 @@
-package semmiedev.disc_jockey;
+package semmiedev.disc_jockey_revive;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;
 import net.minecraft.text.Text;
-import semmiedev.disc_jockey.gui.SongListWidget;
+import semmiedev.disc_jockey_revive.gui.SongListWidget;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,8 +11,6 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class SongLoader {
     public static final ArrayList<Song> SONGS = new ArrayList<>();

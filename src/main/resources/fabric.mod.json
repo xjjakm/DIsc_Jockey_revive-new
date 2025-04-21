@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "disc_jockey",
+  "id": "disc_jockey_revive",
   "version": "${version}",
   "name": "Disc Jockey",
   "description": "在游戏中播放音符盒（打碟机）",
@@ -17,10 +17,10 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "semmiedev.disc_jockey.Main"
+      "semmiedev.disc_jockey_revive.Main"
     ],
     "modmenu": [
-      "semmiedev.disc_jockey.ModMenuIntegration"
+      "semmiedev.disc_jockey_revive.ModMenuIntegration"
     ]
   },
   "mixins": [

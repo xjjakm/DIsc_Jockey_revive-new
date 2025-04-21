@@ -1,4 +1,4 @@
-package semmiedev.disc_jockey;
+package semmiedev.disc_jockey_revive;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;

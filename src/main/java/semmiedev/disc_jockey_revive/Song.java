@@ -1,6 +1,6 @@
-package semmiedev.disc_jockey;
+package semmiedev.disc_jockey_revive;
 
-import semmiedev.disc_jockey.gui.SongListWidget;
+import semmiedev.disc_jockey_revive.gui.SongListWidget;
 
 import java.util.ArrayList;
 

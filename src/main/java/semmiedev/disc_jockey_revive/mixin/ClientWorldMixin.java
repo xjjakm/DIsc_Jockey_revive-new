@@ -1,4 +1,4 @@
-package semmiedev.disc_jockey.mixin;
+package semmiedev.disc_jockey_revive.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.PositionedSoundInstance;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import semmiedev.disc_jockey.Main;
+import semmiedev.disc_jockey_revive.Main;
 
 @Mixin(ClientWorld.class)
 public class ClientWorldMixin {
