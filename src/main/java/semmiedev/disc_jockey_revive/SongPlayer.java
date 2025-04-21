@@ -108,7 +108,7 @@ public class SongPlayer implements ClientTickEvents.StartWorldTick {
 
     public synchronized void start(Song song) {
         if (!Main.config.hideWarning && !warned) {
-            MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(Text.translatable("disc_jockey.warning").formatted(Formatting.BOLD, Formatting.RED));
+            MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(Text.translatable("disc_jockey_revive.warning").formatted(Formatting.BOLD, Formatting.RED));
             warned = true;
             return;
         }
