@@ -3,14 +3,15 @@
   "id": "disc_jockey_revive",
   "version": "${version}",
   "name": "Disc Jockey",
-  "description": "在游戏中播放音符盒（打碟机）",
+  "description": "在游戏中使用音符盒播放nbs乐曲(俗称打碟)：Play note block songs in Minecraft",
   "authors": [
     "SemmieDev",
     "EnderKill98",
-    "BRanulf(仅限该版本，请支持上面两个原作者)"
+    "BRanulf(1.21.4)",
+    "chxjj(1.21.5)"
   ],
   "contact": {
-    "repo": "http://git.branulf.top/BRanulf/DJ_BR"
+    "sources":
   },
   "license": "MIT",
   "icon": "assets/disc_jockey/icon.png",
