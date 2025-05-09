@@ -13,8 +13,8 @@ repositories {
 
 dependencies {
     // To change the versions see the gradle.properties file
-//    implementation files("libs/modmenu-13.0.3.jar")
-//    implementation files("libs/modmenu-13.0.3.pom")
+//    implementation files("libs/modmenu-14.0.0-rc.2")
+//    implementation files("libs/modmenu-14.0.0-rc.2.pom")
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
@@ -22,13 +22,13 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    include modApi("me.shedaniel.cloth:cloth-config-fabric:17.0.142") {
+    include modApi("me.shedaniel.cloth:cloth-config-fabric:18.0.145") {
         exclude(group: "net.fabricmc.fabric-api")
     }
-    modImplementation "me.shedaniel.cloth:cloth-config-fabric:17.0.142"
+    modImplementation "me.shedaniel.cloth:cloth-config-fabric:18.0.145"
 
-//    modCompileOnly("com.terraformersmc:modmenu:13.0.3")、
-    modCompileOnly files("libs/modmenu-13.0.3.jar")
+//    modCompileOnly("com.terraformersmc:modmenu:14.0.0-rc.2")、
+    modCompileOnly files("libs/modmenu-14.0.0-rc.2.jar")
 }
 
 processResources {
